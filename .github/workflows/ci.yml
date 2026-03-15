@@ -25,4 +25,12 @@ jobs:
 
       # - name: Run tests #執行測試
       #   run: yarn test
-  
+
+      - name: Build Project
+        run: yarn build
+
+      - name: Deploy to GitHub Pages (CD)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # Vite 打包後的資料夾名稱 (通常是 dist)
+          branch: gh-pages # 部署到的目標分支 (GitHub Pages 通常用這個分支跑網頁)
